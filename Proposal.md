@@ -21,15 +21,15 @@ Content-aware video resizing, to match a different aspect ratio (accounting for 
 Changing the aspect ratio of an image such that the result looks photorealistic and useful image features are preserved is not a trivial task. Directly resizing and scaling would stretch/squeeze the image, and cropping would lead to loss of useful information. Seam-carving is a method by which this problem is tackled. It removes “seams” from the image, such that the resulting image preserves useful information, still looking photorealistic.\
 ![Example Photo](./proposal_images/castle_example.png)\
 For example, if the above image is to be narrowed, the 3 techniques provide the following results.\
-|Cropped|Scaled|Seam-carved|\
-|---|---|---|\
+|Cropped|Scaled|Seam-carved|
+|---|---|---|
 |![Cropped Castle](./proposal_images/castle_cropped.png)|![Scaled Castle](./proposal_images/castle_scaled.png)|![Seam Carved Castle](./proposal_images/castle_seamcarved.png)|
 |Part of castle is removed|Castle is distorted|Desirable output|
 ![Castle Seams](./proposal_images/castle_seams.png "The removed seams")\
 This project is concerned with applying seam-carving for videos. This problem can be directly broken solved by seam-carving each frame of the video, but that introduces inconsistency between the frames (because of independent processing of the frames) and the resulting video looks jittery.
 
 To avoid this, the seams are to be removed such that the removed seam of one frame corresponds to a respective seam removed in next frame, and so on. To put this another way, a 2D manifold has to be removed from the 3D space-time volume (i.e. stack of multiple 2D frames over a time interval).\
-![2D Seam manifold](./proposal_images/seam_manifold.png)\
+![2D Seam manifold](./proposal_images/seam_manifold.png){ width:50% }\
 The seam to be removed is the one with the lowest energy. The energy function can be calculated either of various methods like gradient map, saliency map, and entropy map.
 
 ## Expected Result
