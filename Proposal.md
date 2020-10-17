@@ -41,7 +41,7 @@ This project is concerned with applying seam-carving for videos. This problem ca
 To avoid this, the seams are to be removed such that the removed seam of one frame corresponds to a respective seam removed in next frame, and so on. To put this another way, a 2D manifold has to be removed from the 3D space-time volume (i.e. stack of multiple 2D frames over a time interval).
 
 <p align = "center">
-  <img src="./proposal_images/seam_manifold.png"/><br>
+  <img src="./proposal_images/seam_manifold.png" height = "250px" width = "500px"/><br>
   <em>2D Seam Manifold</em>
 </p>
 
