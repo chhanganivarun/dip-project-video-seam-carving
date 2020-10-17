@@ -24,12 +24,12 @@ For example, if the above image is to be narrowed, the 3 techniques provide the 
 |Cropped|Scaled|Seam-carved|
 |---|---|---|
 |![Cropped Castle](./proposal_images/castle_cropped.png)|![Scaled Castle](./proposal_images/castle_scaled.png)|![Seam Carved Castle](./proposal_images/castle_seamcarved.png)|
-|Part of castle is removed|Castle is distorted|Desirable output|
+|Part of castle is removed|Castle is distorted|Desirable output|\
 ![Castle Seams](./proposal_images/castle_seams.png "The removed seams")\
 This project is concerned with applying seam-carving for videos. This problem can be directly broken solved by seam-carving each frame of the video, but that introduces inconsistency between the frames (because of independent processing of the frames) and the resulting video looks jittery.
 
 To avoid this, the seams are to be removed such that the removed seam of one frame corresponds to a respective seam removed in next frame, and so on. To put this another way, a 2D manifold has to be removed from the 3D space-time volume (i.e. stack of multiple 2D frames over a time interval).\
-![2D Seam manifold](./proposal_images/seam_manifold.png){ width:50% }\
+![2D Seam manifold](./proposal_images/seam_manifold.png =100x20)\
 The seam to be removed is the one with the lowest energy. The energy function can be calculated either of various methods like gradient map, saliency map, and entropy map.
 
 ## Expected Result
