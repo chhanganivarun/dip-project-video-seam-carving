@@ -20,6 +20,8 @@ Content-aware video resizing, to match a different aspect ratio (accounting for 
 
 Changing the aspect ratio of an image such that the result looks photorealistic and useful image features are preserved is not a trivial task. Directly resizing and scaling would stretch/squeeze the image, and cropping would lead to loss of useful information. Seam-carving is a method by which this problem is tackled. It removes “seams” from the image, such that the resulting image preserves useful information, still looking photorealistic.
 
+A seam is a monotonic and connected path of pixels going from the top of the image to the bottom, or from left to right. By removing one seam from an image, the image size is reduced by one either in the horizontal or the vertical dimension.
+
 <p align = "center">
   <img src="./proposal_images/castle_example.png" /><br>
   <em>Example Photo</em>
@@ -41,7 +43,7 @@ This project is concerned with applying seam-carving for videos. This problem ca
 To avoid this, the seams are to be removed such that the removed seam of one frame corresponds to a respective seam removed in next frame, and so on. To put this another way, a 2D manifold has to be removed from the 3D space-time volume (i.e. stack of multiple 2D frames over a time interval).
 
 <p align = "center">
-  <img src="./proposal_images/seam_manifold.png" height = "250px" width = "500px"/><br>
+  <img src="./proposal_images/seam_manifold.png" height = "250px" width = "395px"/><br>
   <em>2D Seam Manifold</em>
 </p>
 
