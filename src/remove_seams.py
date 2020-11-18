@@ -26,6 +26,5 @@ from sys import platform
 if platform == "linux" or platform == "linux2":
 	script_name = "flow.sh"
 
-N = 1
-for i in tqdm(range(N)):
+for i in tqdm(range(NUM_SEAMS)):
 	os.system(script_name)
