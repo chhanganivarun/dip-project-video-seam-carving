@@ -24,7 +24,7 @@ np.savetxt('array.txt', I.flatten(), fmt='%.0f', header=str(X)+' '+str(Y)+' '+st
 script_name = "flow.bat"
 from sys import platform
 if platform == "linux" or platform == "linux2":
-	script_name = "flow.sh"
+	script_name = "bash flow.sh"
 
 for i in tqdm(range(NUM_SEAMS)):
 	os.system(script_name)
