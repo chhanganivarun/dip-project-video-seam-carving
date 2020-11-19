@@ -9,7 +9,8 @@ using namespace std;
 // ENERGY_FUNCTIONS:
 // 0: Difference
 // 1: Entropy
-#define ENERGY_FUNCTION 1
+// 2: Gradient
+#define ENERGY_FUNCTION 2
 
 #define MAX_EDGES 27000000
 #define MAX_TLINKS 160000
@@ -117,7 +118,20 @@ vector<int> neighborhood(triple_point p, int n)
 	return arr;
 }
 
-int calc_weight(triple_point p1, triple_point p2, int type = 0)
+float gradient(triple_point p)
+{
+	if (p.x + 1 >= X || p.y + 1 >= Y || p.t + 1 >= T)
+	{
+		return INF;
+	}
+	if (p.x - 1 < 0 || p.y - 1 < 0 || p.t - 1 < 0)
+	{
+		return INF;
+	}
+	return abs((get_val({p.x + 1, p.y, p.t}) - get_val({p.x - 1, p.y, p.t})) + (get_val({p.x, p.y + 1, p.t}) - get_val({p.x, p.y - 1, p.t})) + (get_val({p.x, p.y, p.t + 1}) - get_val({p.x, p.y, p.t - 1})));
+}
+
+int calc_weight(triple_point p1, triple_point p2, int type)
 {
 	int ret_val = abs(get_val(p1) - get_val(p2));
 	if (type == 0)
@@ -129,6 +143,11 @@ int calc_weight(triple_point p1, triple_point p2, int type = 0)
 		int n = 3;
 		vector<int> arr = neighborhood(p1, n);
 		ret_val = ShannonEntropy(arr, n);
+	}
+	else if (type == 2)
+	{
+		ret_val = gradient(p1);
+		// printf("2");
 	}
 
 	return ret_val;
