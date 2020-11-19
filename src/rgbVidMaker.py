@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from time import sleep
 from config import *
+# export the final processed RGB video as mp4 file
 
 cap = cv2.VideoCapture(VIDEO_PATH)
 channel_frames = [[],[],[]]

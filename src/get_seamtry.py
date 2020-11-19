@@ -1,6 +1,8 @@
 import numpy as np
 import cv2
 
+# seam removed array is created using seamout.txt and stored in array.txt
+
 with open("array.txt", "r") as f:
 	li = f.readline().split(' ')[1:]
 

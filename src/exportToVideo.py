@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from time import sleep
 from config import *
-
+# export the comparison video as mp4 video file
 with open("array.txt", "r") as f:
 	li = f.readline().split(' ')[1:]
 

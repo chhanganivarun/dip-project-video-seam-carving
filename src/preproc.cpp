@@ -1,6 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+// Uses energy function
+// Creates edge based graph
+// Output of this file is passed on to graphcut.exe
+
 #define MAX_EDGES 27000000
 #define MAX_TLINKS 160000
 #define MAX_X 300

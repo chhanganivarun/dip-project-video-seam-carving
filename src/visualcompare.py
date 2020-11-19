@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from time import sleep
 from config import *
-
+# Converts array.txt into a comparison video of before and after videos
 with open("array.txt", "r") as f:
 	li = f.readline().split(' ')[1:]
 
